@@ -74,7 +74,7 @@ int connect4_check_winner(struct Connect4Game *game)
     /* check vertically */
     for (int x=0; x<game->width; x++) {
         int count = 0;
-        for(int y=0; y<game->height-game->connectN; y++) {
+        for(int y=0; y<game->height; y++) {
             /* 
              * since we start checking from the bottom
              * we can stop counting when we reach the first empty slot
@@ -83,7 +83,7 @@ int connect4_check_winner(struct Connect4Game *game)
             if (game->board[x][y] == 0) {
                 break;
             }
-            
+
             if (game->board[x][y] == game->playerTurn) {
                 count++;
             } else {
@@ -100,7 +100,7 @@ int connect4_check_winner(struct Connect4Game *game)
     /* check horizontally */
     for (int y=0; y<game->height; y++) {
         int count = 0;
-        for(int x=0; x<game->width-game->connectN; x++) {
+        for(int x=0; x<game->width; x++) {
             if (game->board[x][y] == game->playerTurn) {
                 count++;
             } else {
